@@ -6,14 +6,11 @@ def create_app():
     app = Flask(__name__)
 
     with app.app_context():
-
-        @app.route("/")
-        @app.route("/home")
-        def hello_world():
-            return render_template("index.html")
         
-        @app.route("/login")
-        def login():
-            return render_template("login.html")
-            
+        from home import home
+        app.register_blueprint(home.bp)
+
+        from autenticacao import autenticacao
+        app.register_blueprint(autenticacao.bp)
+
     return app
