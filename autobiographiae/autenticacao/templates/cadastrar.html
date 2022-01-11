@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block css %} <link rel="stylesheet" href="/static/css/cadastrar.css"> {% endblock css %}
+
+{% block titulo %}Cadastrar{% endblock titulo %} 
+
+{% block conteudo %} 
+
+<header>
+    <h1 id="titulo">Cadastro</h1>
+</header>
+
+<section id="formulario">
+    <form action="/">
+        <img src="https://cdn.pixabay.com/photo/2016/11/29/13/14/attractive-1869761_960_720.jpg" id="img"><br>
+        <p id="mensagem-foto">A foto não é obrigatoria</p>
+        <label for="foto">Foto:</label><br>
+        <input type="file" id="foto" name="foto" accept="image/*"><br>
+        <label for="nome">Nome:</label><br>
+        <input type="text" id="nome" name="nome" class="campo-form" required><br>
+        
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" class="campo-form" required><br>
+        <label for="senha">Senha:</label><br>
+        <input type="password" id="senha" id="senha" class="campo-form" required><br>
+        <input type="submit" id="submit-cadastrar" value="cadastrar" class="campo-form">
+        <p id="pergunta" class="pergunta">Já é registrado?</p>
+        <a href="{{ url_for('autenticacao.login') }}" class="pergunta">Faça o ligin</a>
+
+    </form>
+</section>
+
+{% endblock conteudo %}
