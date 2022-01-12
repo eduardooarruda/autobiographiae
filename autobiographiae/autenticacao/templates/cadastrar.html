@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block css %} <link rel="stylesheet" href="/static/css/cadastrar.css"> {% endblock css %}
+{% block css %} <link rel="stylesheet" href="{{ url_for('autenticacao.static', filename='css/cadastrar.css') }}"> {% endblock css %}
 
 {% block titulo %}Cadastrar{% endblock titulo %} 
 
@@ -12,10 +12,10 @@
 
 <section id="formulario">
     <form action="/">
-        <img src="https://cdn.pixabay.com/photo/2016/11/29/13/14/attractive-1869761_960_720.jpg" id="img"><br>
+        <img src="{{ url_for('autenticacao.static', filename='img/foto_usuario.png') }}" id="img"><br>
         <p id="mensagem-foto">A foto não é obrigatoria</p>
         <label for="foto">Foto:</label><br>
-        <input type="file" id="foto" name="foto" accept="image/*"><br>
+        <input type="file" id="foto" name="foto" accept="image/*" onchange="previewImagem()"><br>
         <label for="nome">Nome:</label><br>
         <input type="text" id="nome" name="nome" class="campo-form" required><br>
         
@@ -28,6 +28,8 @@
         <a href="{{ url_for('autenticacao.login') }}" class="pergunta">Faça o ligin</a>
 
     </form>
+
+    <script src="{{ url_for('autenticacao.static', filename='js/preview_img.js') }}"></script>
 </section>
 
 {% endblock conteudo %}

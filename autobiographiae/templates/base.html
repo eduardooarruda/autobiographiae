@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../static/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
     {% block css%} {% endblock css %}
     <script src="https://kit.fontawesome.com/68e33fc469.js" crossorigin="anonymous"></script>
@@ -21,11 +21,11 @@
                 <i class="fas fa-bars"></i>
             </label>
     
-            <a href="#" id="logo">
+            <a href="{{ url_for('home.home') }}" id="logo">
                 <img src="https://cdn.pixabay.com/photo/2013/07/12/12/23/nib-145703_960_720.png" alt="autobiographiae" width="60px"> <span class="link-nav">autobiographiae</span>
             </a>
             <ul id="itens">
-                <li><a href="#" class="link-nav"><i class="fas fa-home"></i> Início</a></li>
+                <li><a href="{{ url_for('home.home') }}" class="link-nav"><i class="fas fa-home"></i> Início</a></li>
                 <li><a href="#" class="link-nav"><i class="fas fa-envelope"></i> Contatos</a></li>
                 <!-- <li><a href="#" class="link-nav"><i class="fas fa-address-card"></i> Sobre</a></li> -->
                 <li><a href="{{url_for('autenticacao.login')}}" class="link-nav"><i class="fas fa-sign-in-alt"></i> Entrar</a></li>
@@ -38,6 +38,6 @@
         {% block conteudo %}{% endblock conteudo %}
     </div>
 
-    <script src="../static/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
