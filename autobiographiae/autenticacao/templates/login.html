@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block css %} <link rel="stylesheet" href="../static/css/login.css"> {% endblock css %}
+{% block css %} <link rel="stylesheet" href="{{ url_for('autenticacao.static', filename='css/login.css') }}"> {% endblock css %}
 
 {% block titulo %}Login{% endblock titulo %} 
 
@@ -18,7 +18,7 @@
         <input type="password" id="senha"><br>
         <input type="submit" value="Entrar" id="submit-entrar">
         <p id="pergunta">Não é registrado? </p>
-        <a href="#">Crie uma conta</a>
+        <a href="{{ url_for('autenticacao.cadastrar') }}">Crie uma conta</a>
     </form>
 <section>
 

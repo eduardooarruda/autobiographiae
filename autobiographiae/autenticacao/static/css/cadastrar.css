@@ -1,0 +1,64 @@
+#titulo {
+    text-align: center;
+}
+
+#formulario {
+    background-color: #f5f5f5;
+    width: 450px;
+    margin-left:auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 2px solid navy;
+    border-radius: 10px;
+}
+
+.campo-form{
+    width: 400px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
+#img{
+    width: 150px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+}
+
+#submit-cadastrar {
+    background-color: green;
+    color: white;
+    margin-top: 20px;
+    padding: 3px 85px;
+    font-weight: bold;
+}
+
+#submit-cadastrar:hover {
+    background-color: white;
+    color: green;
+    border: 1px solid green;
+    transition: 1s;
+}
+
+.pergunta{
+    text-align: center;
+    display: block;
+    font-weight: bold;
+}
+
+#foto{
+    display: block;
+    background-color:wheat;
+    font-size: 15px;
+
+}
+
+#mensagem-foto{
+    font-size: 12px;
+    text-align: center;
+    margin:0;
+    margin-bottom: 10px;
+}
