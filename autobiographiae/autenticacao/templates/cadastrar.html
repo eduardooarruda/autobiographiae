@@ -11,19 +11,33 @@
 </header>
 
 <section id="formulario">
-    <form action="/">
+    <form action="{{url_for('autenticacao.cadastrar')}}" method="post" enctype="multipart/form-data">
+        {{ form.csrf_token }}
         <img src="{{ url_for('autenticacao.static', filename='img/foto_usuario.png') }}" id="img" alt="foto do usuário"><br>
         <p id="mensagem-foto">A foto não é obrigatoria</p>
-        <label for="foto">Foto:</label><br>
-        <input type="file" id="foto" name="foto" accept="image/*" onchange="previewImagem()"><br>
-        <label for="nome">Nome:</label><br>
-        <input type="text" id="nome" name="nome" class="campo-form" required><br>
+
+        {{ form.foto.label}}<br>
+        {{ form.foto }}<br>
+        <!-- <label for="foto">Foto:</label><br>
+        <input type="file" id="foto" name="foto" accept="image/*" onchange="previewImagem()"><br> -->
+
+        {{ form.nome.label}}<br> 
+        {{ form.nome(class="campo-form") }} <br>
+        <!-- <label for="nome">Nome:</label><br>
+        <input type="text" id="nome" name="nome" class="campo-form" required><br> -->
+
+        {{ form.email.label }}<br>
+        {{ form.email(class="campo-form") }}<br>
+        <!-- <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" class="campo-form" required><br> -->
         
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" class="campo-form" required><br>
-        <label for="senha">Senha:</label><br>
-        <input type="password" id="senha" id="senha" class="campo-form" required><br>
+        {{ form.senha.label }}<br>
+        {{ form.senha(class="campo-form") }}<br>
+        <!-- <label for="senha">Senha:</label><br>
+        <input type="password" id="senha" id="senha" class="campo-form" required><br> -->
+
         <input type="submit" id="submit-cadastrar" value="cadastrar" class="campo-form">
+
         <p id="pergunta" class="pergunta">Já é registrado?</p>
         <a href="{{ url_for('autenticacao.login') }}" class="pergunta">Faça o ligin</a>
 
