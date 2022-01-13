@@ -12,7 +12,7 @@
 
 <section id="formulario">
     <form action="/">
-        <img src="{{ url_for('autenticacao.static', filename='img/foto_usuario.png') }}" id="img"><br>
+        <img src="{{ url_for('autenticacao.static', filename='img/foto_usuario.png') }}" id="img" alt="foto do usuário"><br>
         <p id="mensagem-foto">A foto não é obrigatoria</p>
         <label for="foto">Foto:</label><br>
         <input type="file" id="foto" name="foto" accept="image/*" onchange="previewImagem()"><br>
