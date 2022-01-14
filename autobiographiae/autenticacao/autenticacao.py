@@ -9,7 +9,7 @@ bp = Blueprint('autenticacao', __name__,
 #Formulario
 
 class CadastroForm(FlaskForm):
-    foto = FileField(label='Foto:', name='foto')
+    foto = FileField(label='Foto:', name='foto', id="foto",)
     nome = StringField(label='Nome:', name='nome', validators=[DataRequired()], id="nome")
     email = StringField(label='Email:', name='email', validators=[DataRequired()], id="email")
     senha = PasswordField(label='Senha', name='senha', validators=[DataRequired()], id="senha")

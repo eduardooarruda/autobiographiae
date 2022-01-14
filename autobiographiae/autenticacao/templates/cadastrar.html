@@ -17,7 +17,7 @@
         <p id="mensagem-foto">A foto não é obrigatoria</p>
 
         {{ form.foto.label}}<br>
-        {{ form.foto }}<br>
+        {{ form.foto(onchange="previewImagem()") }}<br>
         <!-- <label for="foto">Foto:</label><br>
         <input type="file" id="foto" name="foto" accept="image/*" onchange="previewImagem()"><br> -->
 
