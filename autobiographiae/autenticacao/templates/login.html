@@ -11,11 +11,16 @@
 </header>
 
 <section id="formulario">
-    <form action="/">
-        <label for="email">Email:</label><br>
-        <input type="email" id="email"><br>
-        <label for="senha">Senha:</label><br>
-        <input type="password" id="senha"><br>
+    <form action="{{ url_for('autenticacao.login') }}" method="POST">
+        {{ form.csrf_token }}
+        {{ form.email.label }}<br>
+        {{ form.email }}<br>
+        <!-- <label for="email">Email:</label><br>
+        <input type="email" id="email"><br> -->
+        {{ form.senha.label}}<br>
+        {{form.senha}}<br>
+        <!-- <label for="senha">Senha:</label><br>
+        <input type="password" id="senha"><br> -->
         <input type="submit" value="Entrar" id="submit-entrar">
         <p id="pergunta">Não é registrado? </p>
         <a href="{{ url_for('autenticacao.cadastrar') }}">Crie uma conta</a>
