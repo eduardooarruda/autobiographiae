@@ -1,0 +1,16 @@
+{% extends 'base.html' %} 
+
+{% block css %}<link rel="stylesheet" href="{{ url_for('static', filename='css/error404.css')}}">{% endblock css %} 
+
+{% block titulo %}Error 404{% endblock titulo %}
+
+{% block conteudo %}
+    <header>
+        <h1 id="menssagem-error"><strong>Página Não Encontrada</strong></h1>
+    </header>
+
+    <figure>
+        <img src="{{ url_for('static', filename='img/error404.png') }}" alt="foto do usuário" id="img-error" class="img-fluid">
+    </figure>
+    
+{% endblock conteudo %}
