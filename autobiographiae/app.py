@@ -15,9 +15,8 @@ def create_app():
         from autenticacao import autenticacao
         app.register_blueprint(autenticacao.bp)
 
-        @app.errorhandler(404)
-        def page_not_found(e):
-            # note that we set the 404 status explicitly
-            return render_template('404.html'), 404
+        from error_routes import page_not_found
+        app.register_error_handler(404, page_not_found)
+        
 
     return app
