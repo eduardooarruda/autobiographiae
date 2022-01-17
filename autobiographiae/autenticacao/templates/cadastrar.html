@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 
-{% block css %} <link rel="stylesheet" href="{{ url_for('autenticacao.static', filename='css/cadastrar.css') }}"> {% endblock css %}
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('autenticacao.static', filename='css/cadastrar.css') }}"> {% endblock css %}
 
-{% block titulo %}Cadastrar{% endblock titulo %} 
+{% block titulo %}Cadastrar{% endblock titulo %}
 
-{% block conteudo %} 
+{% block conteudo %}
 
 <header>
     <h1 id="titulo">Cadastro</h1>
@@ -13,15 +14,20 @@
 <section id="formulario">
     <form action="{{url_for('autenticacao.cadastrar')}}" method="post" enctype="multipart/form-data">
         {{ form.csrf_token }}
-        <img src="{{ url_for('autenticacao.static', filename='img/foto_usuario.png') }}" id="img" alt="foto do usuário"><br>
+        <img src="{{ url_for('autenticacao.static', filename='img/foto_usuario.png') }}" id="img"
+            alt="foto do usuário"><br>
         <p id="mensagem-foto">A foto não é obrigatoria</p>
 
+        {% if form.errors.foto %}
+            <p style="margin-top: 10px; color:red; font-size:15px;"><i class="fas fa-exclamation-triangle"></i> <b>Erro</b>: Extensão não permitida</p>
+        {% endif %}
+
         {{ form.foto.label}}<br>
-        {{ form.foto(onchange="previewImagem()") }}<br>
+        {{ form.foto(onchange="previewImagem()", accept="image/*") }}<br>
         <!-- <label for="foto">Foto:</label><br>
         <input type="file" id="foto" name="foto" accept="image/*" onchange="previewImagem()"><br> -->
 
-        {{ form.nome.label}}<br> 
+        {{ form.nome.label}}<br>
         {{ form.nome(class="campo-form") }} <br>
         <!-- <label for="nome">Nome:</label><br>
         <input type="text" id="nome" name="nome" class="campo-form" required><br> -->
@@ -30,16 +36,21 @@
         {{ form.email(class="campo-form") }}<br>
         <!-- <label for="email">Email:</label><br>
         <input type="email" id="email" name="email" class="campo-form" required><br> -->
-        
+        {% if form.errors.senha %}
+            <p style="margin-top: 10px; color:red; font-size:15px;"><i class="fas fa-exclamation-triangle"></i> <b>Erro</b>: As senhas não conferem!</p>
+        {% endif %}
         {{ form.senha.label }}<br>
         {{ form.senha(class="campo-form") }}<br>
         <!-- <label for="senha">Senha:</label><br>
         <input type="password" id="senha" id="senha" class="campo-form" required><br> -->
 
+        {{ form.confirm.label}}<br>
+        {{ form.confirm(class="campo-form") }} <br>
+
         <input type="submit" id="submit-cadastrar" value="cadastrar" class="campo-form">
 
         <p id="pergunta" class="pergunta">Já é registrado?</p>
-        <a href="{{ url_for('autenticacao.login') }}" class="pergunta">Faça o ligin</a>
+        <a href="{{ url_for('autenticacao.login') }}" class="pergunta">Faça o login</a>
 
     </form>
 
