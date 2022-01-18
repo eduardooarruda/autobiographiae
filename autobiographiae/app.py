@@ -1,6 +1,9 @@
 from flask import Flask, render_template
+from flask_sqlalchemy import SQLAlchemy
 # import os
 # SECRET_KEY = os.urandom(32)
+
+db = SQLAlchemy()
 
 def create_app():
 
@@ -10,7 +13,9 @@ def create_app():
         app.config.from_object('config.ProductionConfig')
     elif app.config["ENV"] == 'development':
         app.config.from_object('config.DevelopmentConfig')
-
+    
+    db.init_app(app)
+    
     with app.app_context():
         # app.config['SECRET_KEY'] = SECRET_KEY
         
