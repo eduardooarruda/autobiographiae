@@ -5,6 +5,16 @@
 
 {% block conteudo %}  
 
+{% with mensagens = get_flashed_messages() %}
+{% if mensagens %}
+<div class="alert alert-warning text-center" role="alert">
+  {% for mensagem in mensagens %}
+  <h2>{{mensagem}}</h2>
+  {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
 <header class="row">
     <section class="col-sm-6">
         <h1>autobiographiae</h1>

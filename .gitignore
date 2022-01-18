@@ -1,3 +1,9 @@
+#configurações do flask
+config.py
+
+#Banco Sqlite3 
+banco.db
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
