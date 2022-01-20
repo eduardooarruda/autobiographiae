@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, flash, redirect, url_for
 from .forms.formCadastro import CadastroForm
 from .forms.formLogin import LoginForm
 from models import Usuario
+from models import Autobiografia
 from app import db
 
 bp = Blueprint('autenticacao', __name__,
@@ -40,6 +41,7 @@ def cadastrar():
                 flash("Este e-mail já foi cadastrado!")
                 return redirect(url_for('autenticacao.cadastrar'))
             else:
+                autobiografia = Autobiografia()
                 novo_usuario = Usuario(email,nome,senha)
                 db.session.add(novo_usuario)
                 db.session.commit()
