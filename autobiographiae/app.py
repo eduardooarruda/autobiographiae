@@ -1,11 +1,11 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-# import os
-# SECRET_KEY = os.urandom(32)
+
 
 db = SQLAlchemy()
 migrate = Migrate()
+
 
 def create_app():
 
@@ -15,21 +15,19 @@ def create_app():
         app.config.from_object('config.ProductionConfig')
     elif app.config["ENV"] == 'development':
         app.config.from_object('config.DevelopmentConfig')
-    
+
     db.init_app(app)
     migrate.init_app(app, db)
-    
+
     with app.app_context():
-        # app.config['SECRET_KEY'] = SECRET_KEY
-        
-        from home import home
+
+        from autobiographiae.blueprints.home import home
         app.register_blueprint(home.bp)
 
-        from autenticacao import autenticacao
+        from autobiographiae.blueprints.autenticacao import autenticacao
         app.register_blueprint(autenticacao.bp)
 
-        from error_routes import page_not_found
+        from autobiographiae.error_routes import page_not_found
         app.register_error_handler(404, page_not_found)
-        # print(f'senha = {app.config["SECRET_KEY"]}')
 
     return app

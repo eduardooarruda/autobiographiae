@@ -1,6 +1,6 @@
 # from email.policy import default
-from email.policy import default
-from app import db
+from werkzeug.security import generate_password_hash, check_password_hash
+from autobiographiae.app import db
 
 class Usuario(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -13,8 +13,11 @@ class Usuario(db.Model):
     def __init__(self, email, nome, senha):
         self.email = email
         self.nome = nome
-        self.senha = senha
-        
+        self.senha = generate_password_hash(senha)
+
+    def verificar_senha(self, senha):
+        return check_password_hash(self.senha, senha)
+
 class Autobiografia(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     texto = db.Column(db.String(20000))
