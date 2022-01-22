@@ -6,7 +6,9 @@ h1 {
     background-color: green;
     color: white;
     margin-top: 20px;
-    padding: 3px 10px; 
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: none;
 }
 
 #submit-entrar:hover{
@@ -36,4 +38,18 @@ h1 {
 
 input{
     width: 380px;
+    border: 1px solid;
+    border-radius: 10px;
+}
+
+@media only screen and (max-width: 450px) {
+    
+    #formulario{
+        width: 100%;
+    }
+
+    input{
+        width: 90%;
+    }
+
 }

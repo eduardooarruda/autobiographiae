@@ -17,6 +17,8 @@
     width: 400px;
     margin-top: 5px;
     margin-bottom: 5px;
+    border: 1px solid;
+    border-radius: 10px;
 }
 
 
@@ -32,8 +34,9 @@
     background-color: green;
     color: white;
     margin-top: 20px;
-    padding: 3px 85px;
-    font-weight: bold;
+    /* padding: 3px 85px; */
+    /* font-weight: bold; */
+    border-radius: 20px;
 }
 
 #submit-cadastrar:hover {
@@ -53,6 +56,8 @@
     display: block;
     background-color:wheat;
     font-size: 15px;
+    border-radius: 0;
+    border: none;
 
 }
 
@@ -61,4 +66,16 @@
     text-align: center;
     margin:0;
     margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 500px) {
+    
+    #formulario{
+        width: 100%;
+    }
+
+    .campo-form{
+        width: 90%;
+    }
+
 }
