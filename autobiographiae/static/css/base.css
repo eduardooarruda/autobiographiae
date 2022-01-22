@@ -45,7 +45,7 @@ nav {
     margin-bottom: 100px;
 }
 
-body {
+* {
     margin: 0;
     padding: 0;
     /* font-family: Apple Chancery, cursive; */
@@ -108,3 +108,35 @@ nav ul {
         left: 0;
     }
 }
+
+/* Footer */
+
+#rodape{
+    background-color: SteelBlue ;
+    height: 200px;
+    color: white;
+    margin-top: 30px;
+}
+
+.icone-footer{
+    color: white;
+    font-size: 35px;
+}
+.icone-footer:hover{
+    color: black;
+    font-size: 50px;
+}
+#conteudo-footer{
+    text-align: center; 
+}
+
+#grupo-icones-footer{
+    display: flex;
+    flex-direction: row;
+    /* align-items: center;  */
+    justify-content:center;
+    gap: 50px;
+    margin-top: 20px;
+    /* padding: 20px;
+    background-color: yellow; */
+}  
