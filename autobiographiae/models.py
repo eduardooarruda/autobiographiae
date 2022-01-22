@@ -6,9 +6,9 @@ class Usuario(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(100), unique=True, nullable=False)
     nome = db.Column(db.String(100), nullable=False)
-    senha = db.Column(db.String(100), nullable=False)
+    senha = db.Column(db.String(1000), nullable=False)
     foto = db.Column(db.String(100), default='foto_usuario.png')
-    autobiografia = db.relationship('Autobiografia', backref='usuario', lazy=True, uselist=False)
+    autobiografia = db.relationship('Autobiografia', backref='usuario', lazy=True, uselist=False, cascade="all, delete")
 
     def __init__(self, email, nome, senha):
         self.email = email
@@ -20,9 +20,8 @@ class Usuario(db.Model):
 
 class Autobiografia(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    texto = db.Column(db.String(20000))
+    texto = db.Column(db.String(40000))
     data = db.Column(db.Date)
-    fonte = db.Column(db.String(100), default='Apple Chancery, cursive')
     autor =  db.Column(db.Integer, db.ForeignKey('usuario.id'), nullable=False, unique=True)
 
     def __init__(self, texto, data, autor):
