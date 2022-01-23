@@ -19,7 +19,8 @@ nav a {
 .link-nav {
     text-decoration: none;
     color: navy;
-    font-size: 20px;
+    /* font-size: 20px; */
+    /* margin-bottom:10px; */
 }
 
 .link-nav:active,

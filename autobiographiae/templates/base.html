@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="autobiographiae é uma plataforma onde você pode compartilhar a sua história de vida e ler a história de vida de pessoas comuns. Você não precisa ser famoso ou ter feito uma grande contribuição para a humanidade, lembre-se todos nós temos uma história que vale a pena ser compartilhada.">
+    <link rel="icon" href="{{url_for('static', filename='img/logo-icon.ico')}}">
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
     {% block css%} {% endblock css %}
@@ -23,8 +24,10 @@
             </label>
     
             <a href="{{ url_for('home.home') }}" id="logo">
-                <img src="https://cdn.pixabay.com/photo/2013/07/12/12/23/nib-145703_960_720.png" alt="autobiographiae" width="60px"> <span class="link-nav">autobiographiae</span>
+                <img src="{{url_for('static', filename='img/logo.png')}}" alt="autobiographiae" width="80px" >
+                <span class="link-nav">autobiographiae</span> 
             </a>
+            
             <ul id="itens">
                 <li><a href="{{ url_for('home.home') }}" class="link-nav"><i class="fas fa-home"></i> Início</a></li>
                 <li><a href="#" class="link-nav"><i class="fas fa-envelope"></i> Contatos</a></li>
@@ -43,9 +46,9 @@
         <div id="conteudo-footer">
             <h4>autobiographiae</h4>
             <div id="grupo-icones-footer">
-                <a href="https://github.com/eduardooarruda/autobiographiae"><i class="fab fa-github icone-footer "></i></a>
+                <a href="https://github.com/eduardooarruda/autobiographiae" target="_blank"><i class="fab fa-github icone-footer "></i></a>
                 <a href="mailto:eduardodossantosarrudag@gmail.com"><i class="fas fa-envelope icone-footer"></i></a>
-                <a href="#"><i class="fas fa-qrcode icone-footer "></i></a>
+                <a href="{{url_for('QRcode.qrcode')}}"><i class="fas fa-qrcode icone-footer "></i></a>
             </div>
             <p id="copyright">Copyright  &copy;2022 autobiographiae.</p>
         </div>
