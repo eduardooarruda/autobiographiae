@@ -1,0 +1,13 @@
+{% extends 'base.html' %}  
+
+{% block css%} <link rel="stylesheet" href="{{url_for('QRcode.static', filename='css/qrcode.css')}}"> {% endblock css %}
+{% block titulo %}Home{% endblock titulo %}
+
+{% block conteudo %}
+    <section id="qrcode">
+        <header>
+            <h1>Acesse pelo smartphone</h1>
+        </header>
+        <img src="{{url_for('QRcode.static', filename='img/qrcode.png')}}" alt="qrcode do site autobiographiae" width="300px">
+    </section>
+{% endblock conteudo %}

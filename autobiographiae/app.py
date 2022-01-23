@@ -27,6 +27,9 @@ def create_app():
         from autobiographiae.blueprints.autenticacao import autenticacao
         app.register_blueprint(autenticacao.bp)
 
+        from autobiographiae.blueprints.QRcode import QRcode
+        app.register_blueprint(QRcode.bp)
+
         from autobiographiae.error_routes import page_not_found
         app.register_error_handler(404, page_not_found)
 
