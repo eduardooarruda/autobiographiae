@@ -1,8 +1,9 @@
 # from email.policy import default
 from werkzeug.security import generate_password_hash, check_password_hash
-from autobiographiae.app import db
+from autobiographiae.app import db, loginmanager
+from flask_login import UserMixin
 
-class Usuario(db.Model):
+class Usuario(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(100), unique=True, nullable=False)
     nome = db.Column(db.String(100), nullable=False)
@@ -30,3 +31,6 @@ class Autobiografia(db.Model):
         self.autor = autor
         
 
+@loginmanager.user_loader
+def load_usuarios(id):
+    return Usuario.query.get(int(id))

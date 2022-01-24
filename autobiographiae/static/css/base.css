@@ -30,6 +30,9 @@ nav a {
     transition: 1s;
 }
 
+#logout{
+    color: brown;
+}
 nav ul li {
     display: inline-block;
     margin-right: 10px;

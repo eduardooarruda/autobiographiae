@@ -32,7 +32,11 @@
                 <li><a href="{{ url_for('home.home') }}" class="link-nav"><i class="fas fa-home"></i> Início</a></li>
                 <li><a href="#" class="link-nav"><i class="fas fa-envelope"></i> Contatos</a></li>
                 <!-- <li><a href="#" class="link-nav"><i class="fas fa-address-card"></i> Sobre</a></li> -->
-                <li><a href="{{url_for('autenticacao.login')}}" class="link-nav"><i class="fas fa-sign-in-alt"></i> Entrar</a></li>
+                {% if current_user.is_authenticated %}
+                    <li><a href="{{url_for('autenticacao.logout')}}" class="link-nav" id="logout"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+                {% else %}
+                    <li><a href="{{url_for('autenticacao.login')}}" class="link-nav"><i class="fas fa-sign-in-alt"></i> Entrar</a></li>
+                {% endif %}
             </ul>
         </nav>
     </header>
