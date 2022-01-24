@@ -56,6 +56,14 @@
 
         {{ form.confirm.label}}<br>
         {{ form.confirm(class="campo-form") }} <br>
+        
+        {% if form.errors.recaptcha %}
+            <p style="margin-top: 10px; color:orangered; font-size:15px;"><i class="fas fa-exclamation-triangle"></i> Preencha o captcha</p>
+        {% endif %}
+        <div id="recaptcha">
+            {{ form.recaptcha}}
+        </div>
+        
 
         <input type="submit" id="submit-cadastrar" value="cadastrar" class="campo-form">
 

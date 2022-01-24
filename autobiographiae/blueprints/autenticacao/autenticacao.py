@@ -19,12 +19,12 @@ def login():
             email = form.email.data
             usuario = Usuario.query.filter_by(email=email).first()
 
-            if not(usuario) or not(usuario.verificar_senha(form.senha.data)):
+            if usuario and usuario.verificar_senha(form.senha.data):
+                flash(f"Seja bem vindo! {usuario.nome}")
+                return redirect(url_for('home.home'))
+            else:
                 flash('E-mail ou senha invalida!')
                 return redirect(url_for('autenticacao.login'))
-            else:
-                flash("Seja bem vindo!")
-                return redirect(url_for('home.home'))
 
     return render_template("login.html", form=form)
 
