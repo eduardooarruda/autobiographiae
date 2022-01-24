@@ -1,11 +1,11 @@
-from flask import Flask, render_template
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-
+from flask_login import LoginManager
 
 db = SQLAlchemy()
 migrate = Migrate()
-
+loginmanager = LoginManager()
 
 def create_app():
 
@@ -18,9 +18,11 @@ def create_app():
 
     db.init_app(app)
     migrate.init_app(app, db, render_as_batch=True)
+    loginmanager.init_app(app)
 
     with app.app_context():
-
+        loginmanager.login_view = '/autenticacao/login'
+        loginmanager.login_message = "Faça login para acessar a página!"
         from autobiographiae.blueprints.home import home
         app.register_blueprint(home.bp)
 

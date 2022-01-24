@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
+from flask_login import login_required, login_user, logout_user
 from .forms.formCadastro import CadastroForm
 from .forms.formLogin import LoginForm
 from autobiographiae.models import Usuario
@@ -19,12 +20,13 @@ def login():
             email = form.email.data
             usuario = Usuario.query.filter_by(email=email).first()
 
-            if not(usuario) or not(usuario.verificar_senha(form.senha.data)):
+            if usuario and usuario.verificar_senha(form.senha.data):
+                login_user(usuario)
+                flash(f"Seja bem vindo! {usuario.nome}")
+                return redirect(url_for('home.home'))
+            else:
                 flash('E-mail ou senha invalida!')
                 return redirect(url_for('autenticacao.login'))
-            else:
-                flash("Seja bem vindo!")
-                return redirect(url_for('home.home'))
 
     return render_template("login.html", form=form)
 
@@ -48,3 +50,11 @@ def cadastrar():
                 return redirect(url_for('home.home'))
 
     return render_template("cadastrar.html", form=form)
+
+
+@bp.get('/logout')
+@login_required
+def logout():
+    logout_user()
+    flash('Você não está mais logado')
+    return redirect('/')
