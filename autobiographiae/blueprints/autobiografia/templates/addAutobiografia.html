@@ -1,0 +1,15 @@
+{% extends 'base.html' %}  
+
+{% block css%} 
+<link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
+<script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
+{% endblock css %}
+{% block titulo %}Adicionar{% endblock titulo %}
+
+{% block conteudo %}
+    <textarea id="my-text-area"></textarea>
+
+    <script>
+        const easyMDE = new EasyMDE({element: document.getElementById('my-text-area')});
+    </script>
+{% endblock conteudo %}
