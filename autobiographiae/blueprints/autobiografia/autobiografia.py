@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template
+from flask_login import login_required
 
 bp = Blueprint('autobiografia', __name__,
                url_prefix="/autobiografia", template_folder="templates", static_folder="static")
@@ -9,5 +10,6 @@ def autobiografia():
 
 
 @bp.route("/adicionar", methods=['GET', 'POST'] )
+@login_required
 def adicionar():
     return render_template('addAutobiografia.html')
