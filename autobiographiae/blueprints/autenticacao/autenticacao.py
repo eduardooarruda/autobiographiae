@@ -9,7 +9,7 @@ from autobiographiae.app import db
 
 
 bp = Blueprint('autenticacao', __name__,
-               url_prefix="/autenticacao", template_folder="templates", static_folder="static", static_url_path='/static')
+               url_prefix="/autenticacao", template_folder="templates", static_folder="static")
 
 
 @bp.route("/login", methods=['GET', 'POST'])

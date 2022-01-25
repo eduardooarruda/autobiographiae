@@ -1,0 +1,29 @@
+#caixa-texto{
+    width: 100%;
+    border: 3px solid navy;
+    border-radius: 3px;
+}
+
+#botao-submit{
+    width: 50%;
+    background-color:green;
+    color: white;
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: block;
+    margin: 0 auto;
+}
+
+#botao-submit:hover{
+    width: 100%;
+    box-shadow: 4px 5px 4px navy;
+    transition: all 1s;
+}
+
+#mostrar-markdown{
+    border: 1px solid navy;
+    border-radius: 3px;
+    background-color: indigo;
+    color: white;
+}
