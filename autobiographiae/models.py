@@ -1,7 +1,9 @@
 # from email.policy import default
+from email.policy import default
 from werkzeug.security import generate_password_hash, check_password_hash
 from autobiographiae.app import db, loginmanager
 from flask_login import UserMixin
+from datetime import date
 
 class Usuario(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
@@ -22,12 +24,11 @@ class Usuario(db.Model, UserMixin):
 class Autobiografia(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     texto = db.Column(db.String(40000))
-    data = db.Column(db.Date)
+    data = db.Column(db.Date, default=date.today())
     autor =  db.Column(db.Integer, db.ForeignKey('usuario.id'), nullable=False, unique=True)
 
-    def __init__(self, texto, data, autor):
+    def __init__(self, texto, autor):
         self.texto = texto
-        self.data = data
         self.autor = autor
         
 
