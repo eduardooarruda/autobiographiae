@@ -5,6 +5,13 @@ from autobiographiae.app import db, loginmanager
 from flask_login import UserMixin
 from datetime import date
 
+def verificar_tagHTML(texto):
+    tags_html = ['<form', '<a','<input']
+    for tag in tags_html:
+        if tag in texto:
+            return '<h2 style="color: red; background: Gold; border: 1px solid; padding: 10px;">No seu texto foi encontrado tags HTML, por favor redija seu texto novamente sem adicionar tags HTML.<h2>'
+    return texto
+
 class Usuario(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(100), unique=True, nullable=False)
@@ -28,7 +35,7 @@ class Autobiografia(db.Model):
     autor =  db.Column(db.Integer, db.ForeignKey('usuario.id'), nullable=False, unique=True)
 
     def __init__(self, texto, autor):
-        self.texto = texto
+        self.texto = verificar_tagHTML(texto)
         self.autor = autor
         
 
