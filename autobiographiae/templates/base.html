@@ -30,8 +30,8 @@
             
             <ul id="itens">
                 <div id="barra-pesquisa">
-                    <form action="#">
-                        <input type="search" name="" id="campo-busca" placeholder="Pesquise uma autobiografia">
+                    <form action="{{ url_for('autobiografia.pesquisar_autobiografia')}}" method="POST">
+                        <input type="search" name="nome_usuario" id="campo-busca" placeholder="Pesquise uma autobiografia" required>
                         <button type="submit" id="btn-busca"><i class="fas fa-search"></i></button>
                     </form>
                 </div>
