@@ -35,6 +35,9 @@
                         <button type="submit" id="btn-busca"><i class="fas fa-search"></i></button>
                     </form>
                 </div>
+                {% if current_user.is_authenticated %}
+                    <li><a href="{{url_for('autobiografia.adicionar')}}" class="link-nav" id="escreva"><i class="fas fa-pencil-alt"></i>Escreva</a></li>
+                {% endif %}
                 <li><a href="{{ url_for('home.home') }}" class="link-nav"><i class="fas fa-home"></i> Início</a></li>
                 <li><a href="#" class="link-nav"><i class="fas fa-envelope"></i> Contatos</a></li>
                 <!-- <li><a href="#" class="link-nav"><i class="fas fa-address-card"></i> Sobre</a></li> -->

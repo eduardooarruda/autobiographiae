@@ -33,6 +33,10 @@ nav a {
 #logout{
     color: brown;
 }
+
+#escreva{
+    color: DarkOrange;
+}
 nav ul li {
     display: inline-block;
     margin-right: 10px;
@@ -116,7 +120,7 @@ nav ul {
         margin-left: 10px;
     }
 }
-@media (max-width: 920px) {
+@media (max-width: 1040px) {
     .checkbtn {
         display: block;
     }
@@ -145,13 +149,13 @@ nav ul {
     }
 }
 
-@media (max-width: 1060px) {
+@media (max-width: 1195px) {
     #campo-busca{
         width: 200px;
     }
 }
 
-@media (max-width: 970px) {
+@media (max-width: 1090px) {
     #campo-busca{
         width: 150px;
     }

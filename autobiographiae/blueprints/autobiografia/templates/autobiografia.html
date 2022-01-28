@@ -14,7 +14,7 @@
                 <img src="https://cdn.pixabay.com/photo/2018/02/21/08/40/woman-3169726_960_720.jpg" alt="foto do usuário" id="foto" class="img-fluid">
             </figure>
             <h3 id="nome">{{ usuario.nome }}</h3>
-            <p>{{ usuario.autobiografia.texto | safe }}</p>
+            {{ usuario.autobiografia.texto | safe }}
             
             <p id="atualizacao">Última atualização: {{ usuario.autobiografia.data }}</p>
         </section>

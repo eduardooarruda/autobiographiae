@@ -4,13 +4,14 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from autobiographiae.app import db, loginmanager
 from flask_login import UserMixin
 from datetime import date
+from markdown import markdown
 
 def verificar_tagHTML(texto):
     tags_html = ['<form', '<a','<input']
     for tag in tags_html:
         if tag in texto:
             return '<h2 style="color: red; background: Gold; border: 1px solid; padding: 10px;">No seu texto foi encontrado tags HTML, por favor redija seu texto novamente sem adicionar tags HTML.<h2>'
-    return texto
+    return markdown(texto, extensions=['tables','def_list', 'admonition', 'meta','fenced_code'])
 
 class Usuario(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
