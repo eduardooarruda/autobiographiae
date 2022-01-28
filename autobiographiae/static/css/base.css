@@ -61,6 +61,11 @@ nav {
     font-family: 'Mali', cursive;
 }
 
+body{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
 nav ul {
     float: right;
 }
@@ -169,7 +174,9 @@ nav ul {
     color: white;
     margin-top: 30px;
 }
-
+main{
+    flex-grow: 1;
+}
 .icone-footer{
     color: white;
     font-size: 35px;
