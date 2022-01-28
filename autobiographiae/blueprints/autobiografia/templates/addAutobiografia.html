@@ -30,9 +30,9 @@
    <div id="mostrar-markdown">
    </div>
    
-    <form action="#" method="POST">
+    <form action="{{ url_for('autobiografia.adicionar') }}" method="POST">
         <label for="caixa-texto"></label>
-        <textarea id="caixa-texto" name="autobiografia" rows="30" onkeyup="run()"></textarea><br>
+        <textarea id="caixa-texto" name="texto" rows="30" onkeyup="run()"></textarea><br>
         <input type="submit" value="Adicionar" id="botao-submit">
     </form>     
     <!-- FIM da caixa de texto para adicionar e mostrar a autobiografia -->

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}  
+
+{% block css%}{% endblock css %}
+{% block titulo %}Pesquisa{% endblock titulo %}
+
+{% block conteudo %}
+
+<header>
+    <h3>{{ resultado }}</h3>
+</header>
+
+<section>
+    <ol>
+        {% for usuario in lista_usuarios %}
+        <li><a href="{{url_for('autobiografia.mostrar_autobiografia', id_usuario=usuario.id)}}">{{ usuario.nome}}</a></li>
+        {% endfor %}
+    </ol>
+</section>
+{% endblock conteudo %}
