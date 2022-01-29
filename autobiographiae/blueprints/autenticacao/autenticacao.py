@@ -22,7 +22,7 @@ def login():
 
             if usuario and usuario.verificar_senha(form.senha.data):
                 login_user(usuario)
-                flash(f"Seja bem vindo! {usuario.nome}")
+                flash(f"Seja bem vindo {usuario.nome}!")
                 return redirect(url_for('home.home'))
             else:
                 flash('E-mail ou senha invalida!')
@@ -56,5 +56,5 @@ def cadastrar():
 @login_required
 def logout():
     logout_user()
-    flash('Você não está mais logado')
+    flash('Você não está mais logado!')
     return redirect('/')

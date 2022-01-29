@@ -17,8 +17,8 @@
 
 <header class="row">
     <section class="col-sm-6">
-        <h1>autobiographiae</h1>
-        <p class="sobre"><strong>autobiographiae</strong> é uma plataforma onde você pode compartilhar a sua história de vida e ler a história de vida de pessoas comuns. Você não precisa ser famoso ou ter feito uma grande contribuição para a humanidade, lembre-se todos nós temos uma história que vale a pena ser compartilhada. </p>
+        <h1>Autobiographiae</h1>
+        <p class="sobre"><strong>Autobiographiae</strong> é uma plataforma onde você pode compartilhar a sua história de vida e ler a história de vida de pessoas comuns. Você não precisa ser famoso ou ter feito uma grande contribuição para a humanidade, lembre-se todos nós temos uma história que vale a pena ser compartilhada. </p>
     </section>
     <figure class="col-sm-6">
        <img src="{{url_for('static', filename='img/livro.jpg')}}" alt="Ilustração de um livro que representa a passagem dos momentos da vida.
@@ -27,9 +27,9 @@
     </figure>
 
     <section id="escrever" class="col">
-      <h2>Subtitulo</h2>
+      <h2>Leia todas as autobiografias</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta nemo suscipit minus recusandae nostrum eaque aliquam? Quae ipsam provident harum corporis, deserunt pariatur ex odio sapiente nobis reprehenderit vitae excepturi!</p>
-      <a href="#" id="botao">Escrever</a>        
+      <a href="{{ url_for('autobiografia.mostrar_todas_autobiografias')}}" id="botao">Autobiografias</a>        
     </section>
    
 </header>
