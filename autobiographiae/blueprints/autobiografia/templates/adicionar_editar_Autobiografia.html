@@ -1,0 +1,79 @@
+{% extends 'base.html' %}  
+
+{% block css%}
+<link rel="stylesheet" href="{{url_for('autobiografia.static', filename='css/addAutobiografia.css')}}">
+{% endblock css %}
+{% block titulo %}
+    {% if current_user.autobiografia %}
+        Editar
+    {% else %}
+        Adicionar
+    {% endif %}
+
+{% endblock titulo %}
+
+{% block conteudo %}
+
+    <p>Você pode personalizar o seu texto com a linguagem de  marcação  <a  href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Markdown</a>.</p>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Exemplos práticos com Markdown</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INICIO ALERT -->
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+         <p>Não é permitida a utilização de <strong>tags HTML</strong>!</p>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      <!-- FIM ALERT -->
+
+      <!-- INICIO da caixa de texto para adicionar e mostrar a autobiografia -->
+    <div id="mostrar-markdown">
+    </div>
+    
+    {% if current_user.autobiografia %}
+        <form action="{{ url_for('autobiografia.editar_autobiografia') }}" method="POST">
+          <label for="caixa-texto"></label>
+          <textarea id="caixa-texto" name="texto" rows="30" onkeyup="run()">{{ 'No seu texto foi encontrado tags HTML, por favor redija seu texto novamente sem adicionar tags HTML.' if 'No seu texto foi encontrado tags HTML, por favor redija seu texto novamente sem adicionar tags HTML.' in current_user.autobiografia.texto else  current_user.autobiografia.texto }}</textarea>
+          <input type="submit" value="Editar" id="botao-submit" style="background-color: yellow; color: black;">
+        </form>   
+
+    {% else %}
+        <form action="{{ url_for('autobiografia.adicionar_autobiografia') }}" method="POST">
+            <label for="caixa-texto"></label>
+            <textarea id="caixa-texto" name="texto" rows="30" onkeyup="run()"></textarea><br>
+            <input type="submit" value="Adicionar" id="botao-submit">
+        </form>     
+        <!-- FIM da caixa de texto para adicionar e mostrar a autobiografia -->
+    {% endif %}
+
+      <script>
+          function run() {
+        var text = document.getElementById('caixa-texto').value,
+            target = document.getElementById('mostrar-markdown'),
+            converter = new showdown.Converter(),
+            html = converter.makeHtml(text);
+      
+          target.innerHTML = html;
+      }
+
+      // alert("Não é permitida a utilização de tags HTML.")
+      
+      </script>
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js">
+      </script>
+    
+    
+{% endblock conteudo %}

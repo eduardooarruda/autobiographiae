@@ -12,7 +12,9 @@
 <section>
     <ol>
         {% for usuario in lista_usuarios %}
-        <li><a href="{{url_for('autobiografia.mostrar_autobiografia', id_usuario=usuario.id)}}">{{ usuario.nome}}</a></li>
+            {% if usuario.autobiografia and not 'No seu texto foi encontrado tags HTML, por favor redija seu texto novamente sem adicionar tags HTML.' in usuario.autobiografia.texto %}
+                <li><a href="{{url_for('autobiografia.mostrar_autobiografia', id_usuario=usuario.id)}}">{{ usuario.nome}}</a></li>
+            {% endif %}
         {% endfor %}
     </ol>
 </section>
