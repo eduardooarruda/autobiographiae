@@ -1,0 +1,32 @@
+{% extends 'base.html' %}  
+
+{% block css%} <link rel="stylesheet" href="{{url_for('usuario.static', filename='css/perfil.css')}}"> {% endblock css %}
+{% block titulo %}Home{% endblock titulo %}
+
+{% block conteudo %}
+
+    <section id="perfil">
+        <form>
+            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" id="imagem"><br>
+            <!--       <label for="foto">Foto:</label><br> -->
+            <input type="file" id="foto" class="form-input" name="foto" accept="image/*" onchange="previewImagem()"><br><br>
+            <label for="nome"><i class="fas fa-portrait"></i> Nome:</label>
+            <input type="text" class="form-input" name="nome" id="nome" placeholder="{{current_user.nome}}">
+
+            <label for="email"><i class="fas fa-envelope"></i> Email:</label>
+            <input type="email" class="form-input" name="email" id="email" placeholder="{{current_user.email}}">
+
+            <label for="senha"><i class="fas fa-key"></i></i> Senha:</label>
+            <input type="password" class="form-input" name="senha" id="senha" placeholder="Modifique sua senha"><br>
+
+            <a href="{{url_for('autobiografia.mostrar_autobiografia', id_usuario = current_user.id)}}" id="visualizar-autobiografia"><i class="fas fa-book-open"></i> Virsualizar autobiografia</a>
+
+            <button type="submit" class="botao" id="botao-salvar">Salvar</button>
+        </form>
+        <button type="button" class="botao" id="botao-apagar">Apagar conta</button>
+    </section>
+
+    <script src="{{ url_for('usuario.static', filename='js/preview_img.js') }}"></script>
+    
+
+{% endblock conteudo %}
